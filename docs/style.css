@@ -1,0 +1,43 @@
+/* 
+align paragraphs closer to center, rather than spanning the page
+*/
+.style {
+  height: 100vh;
+  text-align:center;
+  padding-top:calc(50vh - 50px);
+}
+
+body {
+    background: hsla(197, 14%, 57%, 1);
+    background: linear-gradient(90deg, hsla(197, 14%, 57%, 1) 0%, hsla(192, 17%, 94%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(197, 14%, 57%, 1) 0%, hsla(192, 17%, 94%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(197, 14%, 57%, 1) 0%, hsla(192, 17%, 94%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8399A2", endColorstr="#EEF2F3", GradientType=1 );
+    color: #112A46
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #112A46;
+  text-align: center;
+  padding: 15px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.hideme {
+  opacity: 0;
+}
+
+.fade-in {
+  display: none;
+}
