@@ -51,6 +51,14 @@ img {
   font-size: 125%;
 }
 
+.text-small {
+	font-size: 80%;
+}
+
+#quote-box {
+	font-size: 60%;
+}
+
 /* profile card CSS */
 h3 {
 	margin: 10px 0;
@@ -113,4 +121,8 @@ button.primary {
 	font-size: 12px;
 	margin: 0 7px 7px 0;
 	padding: 7px;
+}
+
+.card-body {
+	word-wrap:normal;
 }
