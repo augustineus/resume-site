@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-navigation-drawer app permanent>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="center">Navigation</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider></v-divider>
+
+        <v-list nav>
+          <v-list-item v-for="i in navbtns" :key="i.title" link>
+            <v-list-item-icon>
+              <v-icon>{{ i.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{ i.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+
+      <v-main>
+        <v-container fluid>
+          <!--dont forget to add credit for https://www.freepik.com/free-vector/parallax-background-luxury-old-library-2d-interior_21845882.htm#query=parallax&position=5&from_view=keyword&track=sph-->
+          <v-parallax src="/docs/2110.w026.n002.929B.p1.929.jpg" height="2000">
+            hi! i'm tim ortega. welcome.
+          </v-parallax>
+        </v-container>
+      </v-main>
+
+      <v-footer app></v-footer>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data() {
+        return {
+          navbtns: [{icon: "mdi-help-box", title: "test", link: ""},
+            {icon: "mdi-help-box", title: "test1", link: ""},
+            {icon: "mdi-help-box", title: "test2", link: ""}]
+        }
+      }
+    })
+  </script>
+</body>
+</html>
