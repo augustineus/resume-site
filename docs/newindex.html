@@ -9,15 +9,17 @@
 <body>
   <div id="app">
     <v-app>
-      <v-navigation-drawer app permanent>
+      <v-app-bar app color="primary">
+        <v-app-bar-nav-icon @click="drawer = true" class="white--text"></v-app-bar-nav-icon>
+        <v-toolbar-title class="white--text font-weight-bold text-center">{{ title }}</v-toolbar-title>
+      </v-app-bar>
+      <v-navigation-drawer v-model="drawer" fixed temporary id="nav" color="primary">
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title class="center">Navigation</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-
-        <v-divider></v-divider>
-
+        <!--make these href to #ids for easier nagivation-->
         <v-list nav>
           <v-list-item v-for="i in navbtns" :key="i.title" link>
             <v-list-item-icon>
@@ -29,17 +31,47 @@
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
-
+      <!--center this for landing-->
       <v-main>
-        <v-container fluid>
-          <!--dont forget to add credit for https://www.freepik.com/free-vector/parallax-background-luxury-old-library-2d-interior_21845882.htm#query=parallax&position=5&from_view=keyword&track=sph-->
-          <v-parallax src="/docs/2110.w026.n002.929B.p1.929.jpg" height="2000">
-            hi! i'm tim ortega. welcome.
+        <v-container fluid class="px-auto py-auto" style="padding-left: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;">
+          <!--dont forget to add credit for https://www.vecteezy.com/vector-art/677949-liquid-gradient-color-background-fluid-gradient-->
+          <v-parallax src="/docs/Abstract-03.jpg" height="2000">
+            <v-row align="center" justify="center">
+              <v-col class="text-center" cols="12">
+                <h1 class="text-h4 font-weight-bold mb-4">
+                  hi! i'm tim ortega. welcome.
+                </h1>
+                <h4 class="subheading">
+                  please hire me.
+                </h4>
+              </v-col>
+            </v-row>
+
+            <!--https://v2.vuetifyjs.com/en/components/cards/#loading use this for the main attraction card-->
+
+            <!--use these as links and/or info cards-->
+            <v-container>
+              <v-row dense>
+                <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
+                  <v-card max-width="800" class="mx-auto">
+                    <v-card-title v-text="card.title"></v-card-title>
+                    <v-card-subtitle v-text="card.text"></v-card-subtitle>
+                    <v-card-actions>
+                      <v-btn text>Button</v-btn>
+                    </v-card-actions>
+                    <v-avatar class="ma-3" size="125" tile>
+                      <v-img :src="card.src"></v-img>
+                    </v-avatar>
+                  </v-card>
+                </v-col>
+              </v-row>    
+            </v-container>
           </v-parallax>
         </v-container>
       </v-main>
 
-      <v-footer app></v-footer>
+      <!--list basic contact info here, not sure what else can be added easily-->
+      <v-footer app color="primary"></v-footer>
     </v-app>
   </div>
 
@@ -53,7 +85,12 @@
         return {
           navbtns: [{icon: "mdi-help-box", title: "test", link: ""},
             {icon: "mdi-help-box", title: "test1", link: ""},
-            {icon: "mdi-help-box", title: "test2", link: ""}]
+            {icon: "mdi-help-box", title: "test2", link: ""}],
+          title: "Tim Ortega",
+          drawer: false,
+          cards: [{title: "experience", src:"", text:"more info", flex:"12"},
+          {title: "experience2", src:"", text:"more info", flex:"12"},
+          {title: "experience3", src:"", text:"more info", flex:"12"}]
         }
       }
     })
