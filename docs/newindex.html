@@ -19,7 +19,9 @@
             <v-list-item-title class="center">Navigation</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <!--make these href to #ids for easier nagivation-->
+        <!--make these href to #ids for easier nagivation
+        do i even need this v app bar though?
+        -->
         <v-list nav>
           <v-list-item v-for="i in navbtns" :key="i.title" link>
             <v-list-item-icon>
@@ -31,33 +33,54 @@
           </v-list-item>
         </v-list>
       </v-navigation-drawer>
-      <!--center this for landing-->
+
       <v-main>
         <v-container fluid class="px-auto py-auto" style="padding-left: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;">
           <!--dont forget to add credit for https://www.vecteezy.com/vector-art/677949-liquid-gradient-color-background-fluid-gradient-->
-          <v-parallax src="/docs/Abstract-03.jpg" height="2000">
+          <v-parallax src="/docs/Abstract-03.jpg" height="1750">
             <v-row align="center" justify="center">
               <v-col class="text-center" cols="12">
                 <h1 class="text-h4 font-weight-bold mb-4">
                   hi! i'm tim ortega. welcome.
                 </h1>
-                <h4 class="subheading">
+                <h4 class="subheading mb-4">
                   please hire me.
                 </h4>
+                <v-row dense>
+                  <v-col class="text-center">
+                    <v-card width="500" class="mx-auto rounded-xl white--text" color="primary" flat outlined>
+                      <v-avatar class="ma-3" size="125" tile left>
+                        <v-img src="/docs/headshot1.jpg" contain class="rounded-circle"></v-img>
+                      </v-avatar>
+                      <v-card-title class="white--text justify-center">Senior Full Stack Developer</v-card-title>
+                      <v-card-subtitle class="white--text">at Konsente, LLC</v-card-subtitle>
+                      Check out my skills!
+                      <v-tabs fixed-tabs v-model="tab" background-color="primary">
+                        <v-tab v-for="i in tabs" :key="i.name">{{ i.name }}</v-tab>
+                      </v-tabs>
+                      <v-tabs-items v-model="tab">
+                        <v-tab-item v-for="k in tabs" :key="k.text">
+                          <v-card class="mx-auto">
+                            <v-card-text class="black--text">{{ k.text }}</v-card-text>
+                          </v-card>
+                        </v-tab-item>
+                      </v-tabs-items>
+                    </v-card>
+                  </v-col>
+                </v-row>
               </v-col>
             </v-row>
 
-            <!--https://v2.vuetifyjs.com/en/components/cards/#loading use this for the main attraction card-->
+<!--left off here, need to add links and image to each card, then pick a primary and secondary color for the site-->
 
-            <!--use these as links and/or info cards-->
             <v-container>
               <v-row dense>
                 <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
-                  <v-card max-width="800" class="mx-auto">
+                  <v-card max-width="800" class="mx-auto my-5 rounded-xl" color="primary">
                     <v-card-title v-text="card.title"></v-card-title>
                     <v-card-subtitle v-text="card.text"></v-card-subtitle>
                     <v-card-actions>
-                      <v-btn text>Button</v-btn>
+                      <v-btn text :href="card.link">Check It Out!</v-btn>
                     </v-card-actions>
                     <v-avatar class="ma-3" size="125" tile>
                       <v-img :src="card.src"></v-img>
@@ -88,12 +111,18 @@
             {icon: "mdi-help-box", title: "test2", link: ""}],
           title: "Tim Ortega",
           drawer: false,
-          cards: [{title: "experience", src:"", text:"more info", flex:"12"},
-          {title: "experience2", src:"", text:"more info", flex:"12"},
-          {title: "experience3", src:"", text:"more info", flex:"12"}]
+          cards: [{title: "Konsente", src:"", text:"A dating app addon to help feel more secure and better matched.", flex:"12"},
+            {title: "My GitHub", src:"", text: "My personal GitHub for some tiny side-projects to help hone my skills while working on Konsente.", flex:"12"},
+            {title: "FreeCodeCamp Certificates", src:"", text: "My certificates I earned to help me build Konsente.", flex:"12"}],
+          tabs: [{name: "Python", text: "Django, Django REST Framework (DRF), Selenium" },
+            {name: "JavaScript", text: "React, Redux, jQuery, Bootstrap, Node Packet Manager (NPM), Node, Express, Chai, Vue, Vuetify, D3" },
+            {name: "Databases", text: "SQL, SQLite, PostgreSQL, MongoDB" },
+            {name: "Misc. Exp.", text: "Git, GitHub, GiTEA, Linux, Bash, AWS, Docker"}],
+          tab: true,
         }
       }
     })
   </script>
 </body>
 </html>
+<!--["JavaScript", "React", "Python", "Django", "jQuery", "HTML", "CSS","SASS","Redux" ,"NPM", "Node.js", "Express", "MongoDB", "Mongoose", "Chai"]-->
