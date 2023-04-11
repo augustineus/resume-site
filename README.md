@@ -1,2 +1,2 @@
 # resume-site
-resume site for job applications
+Resume and portfolio site designed from scratch using Vue/Vuetify.
