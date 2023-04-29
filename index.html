@@ -22,25 +22,29 @@
                 </h4>
                 <v-row dense>
                   <v-col class="text-center">
-                    <v-card width="500" class="mx-auto rounded-xl white--text" color="primary" elevation="20">
-                      <v-avatar class="ma-3" size="125" tile left>
-                        <v-img src="headshot1.jpg" contain class="rounded-circle"></v-img>
-                      </v-avatar>
-                      <v-card-title class="white--text justify-center">Senior Full Stack Developer</v-card-title>
-                      <v-card-subtitle class="white--text">at Konsente, LLC</v-card-subtitle>
-                      <v-card-text class="white--text">Contact me at timortega95@gmail.com or (707) 382-9908.</v-card-text>
-                      <v-card-text class="white--text">Check out my skills!</v-card-text>
-                      <v-tabs fixed-tabs v-model="tab" background-color="primary">
-                        <v-tab v-for="i in tabs" :key="i.name">{{ i.name }}</v-tab>
-                      </v-tabs>
-                      <v-tabs-items v-model="tab">
-                        <v-tab-item v-for="k in tabs" :key="k.text">
-                          <v-card class="mx-auto">
-                            <v-card-text class="black--text">{{ k.text }}</v-card-text>
-                          </v-card>
-                        </v-tab-item>
-                      </v-tabs-items>
-                    </v-card>
+                    <v-hover>
+                      <template v-slot:default="{ hover }">
+                        <v-card width="500" class="mx-auto rounded-xl white--text transition-swing" color="primary" :class="`elevation-${hover ? 24 : 6}`">
+                          <v-avatar class="ma-3" size="125" tile left>
+                            <v-img src="headshot1.jpg" contain class="rounded-circle"></v-img>
+                          </v-avatar>
+                          <v-card-title class="white--text justify-center">Senior Full Stack Developer</v-card-title>
+                          <v-card-subtitle class="white--text">at Konsente, LLC</v-card-subtitle>
+                          <v-card-text class="white--text">Contact me at timortega95@gmail.com or (707) 382-9908.</v-card-text>
+                          <v-card-text class="white--text">Check out my skills!</v-card-text>
+                          <v-tabs fixed-tabs v-model="tab" background-color="primary">
+                            <v-tab v-for="i in tabs" :key="i.name">{{ i.name }}</v-tab>
+                          </v-tabs>
+                          <v-tabs-items v-model="tab">
+                            <v-tab-item v-for="k in tabs" :key="k.text">
+                              <v-card class="mx-auto">
+                                <v-card-text class="black--text">{{ k.text }}</v-card-text>
+                              </v-card>
+                            </v-tab-item>
+                          </v-tabs-items>
+                        </v-card>
+                      </template>
+                    </v-hover>
                   </v-col>
                 </v-row>
               </v-col>
@@ -49,20 +53,25 @@
             <v-container>
               <v-row dense>
                 <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
-                  <v-card max-width="600" max-height="175"class="mx-auto my-5 rounded-xl white--text" color="primary" elevation="20">
-                    <div class="d-flex flex-no-wrap justify-space-between">
-                      <div>
-                        <v-card-title v-text="card.title" style="word-break: break-word"></v-card-title>
-                        <v-card-subtitle class="white--text" v-text="card.text"></v-card-subtitle>
-                        <v-card-actions>
-                          <v-btn absolute left bottom class="white--text" text :href="card.link" target="_blank">Check It Out!</v-btn>
-                        </v-card-actions>
-                      </div>
-                      <v-avatar class="ma-3" size="150" tile>
-                        <v-img contain :src="card.src"></v-img>
-                      </v-avatar>
-                    </div>
-                  </v-card>
+                  <v-hover>
+                    <template v-slot:default="{ hover }">
+                      <v-card max-width="600" max-height="175"class="mx-auto my-5 rounded-xl white--text transition-swing" 
+                      :color="hover ? 'blue' : 'primary'" :class="`elevation-${hover ? 24 : 6}`">
+                        <div class="d-flex flex-no-wrap justify-space-between">
+                          <div>
+                            <v-card-title v-text="card.title" style="word-break: break-word"></v-card-title>
+                            <v-card-subtitle class="white--text" v-text="card.text"></v-card-subtitle>
+                            <v-card-actions>
+                              <v-btn absolute left bottom class="white--text" text :href="card.link" target="_blank">Check It Out!</v-btn>
+                            </v-card-actions>
+                          </div>
+                          <v-avatar class="ma-3" size="150" tile>
+                            <v-img contain :src="card.src"></v-img>
+                          </v-avatar>
+                        </div>
+                      </v-card>
+                    </template>
+                  </v-hover>
                 </v-col>
               </v-row>    
             </v-container>
